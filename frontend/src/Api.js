@@ -46,12 +46,12 @@ const Api = () => {
   }  
 
   const http = axios.create({
-    baseURL: "http://localhost:8000/api",
+    baseURL: "https://dev.tutorialspoint.com/resume/resume-builder/backend/api",
     headers:{
         "content-type" : "application/json",
         "Authorization" : `Bearer ${token}`,
         //"Access-Control-Allow-Origin": "*",
-        withCredentials: true
+        //withCredentials: true
     }
   });
 

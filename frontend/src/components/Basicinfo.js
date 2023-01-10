@@ -33,7 +33,7 @@ const Basicinfo = (props) => {
   
   const fetchData = () => {  
     if (localStorage.getItem("userData") === null) {
-      http.get('/basicinfo/',{params:{user_id: inputs.user_id}}).then((res)=>{     
+      http.get('/basicinfo',{params:{user_id: inputs.user_id}}).then((res)=>{     
         setInputs({
           user_id:inputs.user_id,
           fullname:res.data.full_name,

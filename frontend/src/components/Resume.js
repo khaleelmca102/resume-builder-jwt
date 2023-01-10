@@ -25,24 +25,32 @@ const Resume = () => {
       setNumPages(numPages);
     }
 
-    const fetchResume = () => {
+    // const getResumeUrl = () => {
+    //   fetchResume();
+    //   return resumeurl;
+    // }
+
+    const fetchResume = async () => {
       http.get('/resume',{user_id:user.user_id}).then((res)=>{
         console.log(res.data.pdfurl);
-        console.log(res.data.content);
+        //console.log(res.data.content);
         setResumeUrl(res.data.pdfurl);
-        setResumeString(res.data.content.arrayBuffer());
+        console.log('ffee'+resumeurl);
+        //setResumeString(res.data.content.arrayBuffer());
       }).catch((error) => {
-        console.log(error);
         if(error.response.status === 401){        
           navigate('/login');  
         }
       });
     }
+    //'https://d11lgjnokvb2au.cloudfront.net/4/resume.pdf'
     return (
     <div>
       Resume     
       <div>
-       <PdfViewerComponent document={`data:application/pdf;base64,${resumestr}`} />       
+      {resumeurl.length > 0 &&
+       <PdfViewerComponent document={resumeurl} />  
+      }     
       </div> 
     </div>
   )

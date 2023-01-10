@@ -63,7 +63,7 @@ td a, p a, .table-bordered td a, .table td a, .src td a {background:none!importa
 h2.qa-artcl-head {font-size:28px!important; font-weight:500!important; margin-top:10px!important;}
 input.qa-artcl-title{font-size:24px!important;}
 .qa_sts_rpt{position:relative; top:-38px; background:#3ca757; color:#fff; border:1px solid #3ca757; font-size:13px; margin:-4px 0px 0px 10px; padding:5px 10px; float:right; text-align:right; cursor:pointer;}
-.qa_sts_rpt:hover ]{background:#3ca757; color:#fff; border:1px solid #3ca757;}
+.qa_sts_rpt:hover {background:#3ca757; color:#fff; border:1px solid #3ca757;}
 .qa_filter{background:#fff; padding:20px; margin-bottom:20px; border-radius:6px;}
 /* .qa_mod_input{display:flex; width:100%;} */
 .qa_mod_input input{width:100%; height:35px; font-size:14px;padding:0px 0px 0px 10px;}

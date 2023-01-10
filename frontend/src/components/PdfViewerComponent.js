@@ -4,6 +4,8 @@ const PdfViewerComponent = (props) => {
 	const containerRef = useRef('');	
 	useEffect(() => {
         const container = containerRef.current;
+        //const resumeurl = props.getResumeUrl();
+        //console.log(resumeurl);
         let instance, PSPDFKit;
         (async function() {
             PSPDFKit = await import("pspdfkit");
