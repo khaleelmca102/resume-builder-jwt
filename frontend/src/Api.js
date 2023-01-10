@@ -46,7 +46,8 @@ const Api = () => {
   }  
 
   const http = axios.create({
-    baseURL: "https://dev.tutorialspoint.com/resume/resume-builder/backend/api",
+    //baseURL: "https://dev.tutorialspoint.com/resume/resume-builder/backend/api",
+    baseURL: "http://127.0.0.1:8001/api",
     headers:{
         "content-type" : "application/json",
         "Authorization" : `Bearer ${token}`,

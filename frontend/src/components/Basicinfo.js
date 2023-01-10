@@ -22,15 +22,15 @@ const Basicinfo = (props) => {
     profiledescription:'',
   }
   const [inputs, setInputs] = useState(inputValues);
-  
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     inputRef.current['fullname'].focus();
+    console.log('dde'+props.templateName);
     fetchData(); 
   },[]);
-  
+
   const fetchData = () => {  
     if (localStorage.getItem("userData") === null) {
       http.get('/basicinfo',{params:{user_id: inputs.user_id}}).then((res)=>{     

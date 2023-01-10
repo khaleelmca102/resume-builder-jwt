@@ -3,6 +3,7 @@ import { createContext, useState } from 'react';
 import './css/style-min.css';
 import './css/custom.css';
 import './css/article.css';
+import './css/resume.css';
 import Api from './Api';
 import Header from './components/Header';
 import Footer from './components/Footer';

@@ -16,8 +16,9 @@ import { apiToken } from '../App';
 function Home() {
   const navigate = useNavigate();
   const [currentNav, setCurrentNav] = useState('');
-  const [appToken, setAppToken] = useContext(apiToken);
-  
+  const [appToken, setAppToken] = useContext(apiToken);  
+  const [templateName, setTemplateName] = useState('f1');
+
   const checkLogin = () => {
     if(!appToken){
       navigate('/login');
@@ -31,16 +32,20 @@ function Home() {
   const selectMenu = (currentNav) => {
     setCurrentNav(currentNav);
   }  
-
+  
+  const setCurrentTemplate = (templateName) => {
+    setTemplateName(templateName);
+  }
+  
 
   const renderNavigation = (param) => { 
     switch(param) {
       case 'basicinfo':
-        return <Basicinfo setCurrentNav={setCurrentNav} checkLogin={checkLogin} />
+        return <Basicinfo setCurrentNav={setCurrentNav} checkLogin={checkLogin} templateName={templateName}/>
       case 'yourresume':
         return <Resume />
       default:
-        return <Template setCurrentNav={setCurrentNav}/>
+        return <Template setCurrentNav={setCurrentNav} setCurrentTemplate={setCurrentTemplate} />
     }
   }
 
