@@ -1,7 +1,26 @@
+body {
+    overflow: hidden;
+}
 .nav .active {
     color: rgb(219, 58, 9);
 }
-
 .clsWidth20{
     width: 20% !important;
+}
+.clsRightContainer {
+    min-height: 600px;
+    max-height: 1020px;
+    overflow: auto;
+    width: 100%;
+}
+.clsLeftContainer {
+    background: #0f2b3c !important;
+}
+@media (min-width: 1200px) {
+    .container-xl, .container-lg, .container-md, .container-sm, .container {
+        max-width: 100%;
+    }
+}
+@media (min-width: 768px){
+   
 }

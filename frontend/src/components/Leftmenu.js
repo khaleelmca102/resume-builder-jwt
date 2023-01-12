@@ -23,7 +23,7 @@ const Leftmenu = () => {
     <div>
         <Accordion defaultActiveKey={['0']} alwaysOpen>
           <Accordion.Item eventKey="0">
-              <Accordion.Header>Make your Resume</Accordion.Header>
+              <Accordion.Header> Make your Resume</Accordion.Header>
               <Accordion.Body>
                 <Nav defaultActiveKey="/" className="flex-column"  onSelect={selectMenu}>
                     <Nav.Link eventKey="template" title="Choose Templae">Choose Template</Nav.Link>

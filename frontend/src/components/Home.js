@@ -55,7 +55,7 @@ function Home() {
       <Container>
       
         <Row>
-          <Col md={3} sm={3}>
+          <Col md={3} sm={3} className="clsLeftContainer">
             <Accordion defaultActiveKey={['0']} alwaysOpen>
               <Accordion.Item eventKey="0">
                   <Accordion.Header>Make your Resume</Accordion.Header>
@@ -69,10 +69,12 @@ function Home() {
               </Accordion.Item>
               </Accordion>
           </Col>
-          <Col md={8} sm={8}>
-          {
-            renderNavigation(currentNav)
-          }
+          <Col md={9} sm={9}>
+            <div className="clsRightContainer">
+            {
+              renderNavigation(currentNav)
+            }
+            </div>
           </Col>
         </Row>   
       </Container>
