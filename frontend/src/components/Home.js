@@ -15,9 +15,10 @@ import { apiToken } from '../App';
 
 function Home() {
   const navigate = useNavigate();
-  const [currentNav, setCurrentNav] = useState('');
+  const [currentNav, setCurrentNav] = useState('template');
   const [appToken, setAppToken] = useContext(apiToken);  
   const [templateName, setTemplateName] = useState('f1');
+  const [active, setActive] = useState('template');
 
   const checkLogin = () => {
     if(!appToken){
@@ -28,9 +29,13 @@ function Home() {
   useEffect(() => {
     checkLogin();
   });  
+  useEffect(() => {
+    selectMenu(currentNav);
+  },[currentNav]);  
 
   const selectMenu = (currentNav) => {
     setCurrentNav(currentNav);
+    setActive(currentNav);
   }  
   
   const setCurrentTemplate = (templateName) => {
@@ -43,7 +48,7 @@ function Home() {
       case 'basicinfo':
         return <Basicinfo setCurrentNav={setCurrentNav} checkLogin={checkLogin} templateName={templateName}/>
       case 'yourresume':
-        return <Resume />
+        return <Resume setCurrentNav={setCurrentNav} />
       default:
         return <Template setCurrentNav={setCurrentNav} setCurrentTemplate={setCurrentTemplate} />
     }
@@ -60,7 +65,12 @@ function Home() {
               <Accordion.Item eventKey="0">
                   <Accordion.Header>Make your Resume</Accordion.Header>
                   <Accordion.Body>
-                  <Nav defaultActiveKey="/" className="flex-column"  onSelect={selectMenu}>
+                    <Nav 
+                      //defaultActiveKey="/" 
+                      activeKey={active}
+                      className="flex-column"  
+                      onSelect={selectMenu}
+                    >
                       <Nav.Link eventKey="template" title="Choose Templae">Choose Template</Nav.Link>
                       <Nav.Link eventKey="basicinfo" title="Basic Info">Basic Info</Nav.Link>
                       <Nav.Link eventKey="yourresume" title="Your Resume">Your Resume</Nav.Link>
@@ -69,7 +79,7 @@ function Home() {
               </Accordion.Item>
               </Accordion>
           </Col>
-          <Col md={9} sm={9}>
+          <Col md={9} sm={9} >
             <div className="clsRightContainer">
             {
               renderNavigation(currentNav)

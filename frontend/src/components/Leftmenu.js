@@ -21,7 +21,7 @@ const Leftmenu = () => {
 
   return (
     <div>
-        <Accordion defaultActiveKey={['0']} alwaysOpen>
+       <Accordion defaultActiveKey={['0']} alwaysOpen>
           <Accordion.Item eventKey="0">
               <Accordion.Header> Make your Resume</Accordion.Header>
               <Accordion.Body>
@@ -31,7 +31,7 @@ const Leftmenu = () => {
                 </Nav>
               </Accordion.Body>
           </Accordion.Item>
-        </Accordion>
+        </Accordion> 
     </div>
   )
 }

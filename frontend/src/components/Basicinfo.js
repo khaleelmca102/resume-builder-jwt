@@ -27,7 +27,6 @@ const Basicinfo = (props) => {
 
   useEffect(() => {
     inputRef.current['fullname'].focus();
-    console.log('dde'+props.templateName);
     fetchData(); 
   },[]);
 
@@ -114,124 +113,143 @@ const Basicinfo = (props) => {
   }
 
   return (
-    <section>
+    <div className='container'>
+      <h4>Basic Information </h4>
       <p ref={errRef} className={errMsg ? "error" : ""} aria-live="assertive">
       {errMsg}
       </p>
-      <h1> Personal Deatils </h1>
-      <form onSubmit={handleSubmit}>
-        <div className='row'>
-          <div className='col'>
-            <label htmlFor="fullname">Full Name</label>
-            <input 
-              type="text" 
-              id="fullname" 
-              ref={el => inputRef.current['fullname'] = el}
-              autoComplete="off"
-              onChange={handleInputChange}
-              value = {inputs.fullname || ''}
-              required
-            />
-          </div>
-          <div className='col'>
-            <label htmlFor="phonenumber">Phone Number</label>
-            <input 
-              type="text" 
-              id="phonenumber" 
-              ref={el => inputRef.current['phonenumber'] = el}
-              autoComplete="off"
-              onChange={handleInputChange}
-              value = {inputs.phonenumber || ''}
-              required
-            />
-          </div>          
+      <div className='row clsBasicInfo'>
+        <div className='col-mb'>
+          <section>
+            <form onSubmit={handleSubmit}>
+              <div className='row'>
+                <div className='col'>
+                  <label htmlFor="fullname">Full Name</label>
+                  <input 
+                    type="text" 
+                    id="fullname" 
+                    className='form-control'
+                    ref={el => inputRef.current['fullname'] = el}
+                    autoComplete="off"
+                    onChange={handleInputChange}
+                    value = {inputs.fullname || ''}
+                    required
+                  />
+                </div>
+                <div className='col'>
+                  <label htmlFor="phonenumber">Phone Number</label>
+                  <input 
+                    type="text" 
+                    id="phonenumber" 
+                    className='form-control'
+                    ref={el => inputRef.current['phonenumber'] = el}
+                    autoComplete="off"
+                    onChange={handleInputChange}
+                    value = {inputs.phonenumber || ''}
+                    required
+                  />
+                </div>          
+              </div>
+              <div className='row'>
+                <div className='col'>
+                  <label htmlFor="profiletitle">Title</label>
+                  <input 
+                    type="text" 
+                    id="profiletitle" 
+                    className='form-control'
+                    ref={el => inputRef.current['profiletitle'] = el}
+                    autoComplete="off"
+                    onChange={handleInputChange}
+                    value = {inputs.profiletitle || ''}
+                    required
+                  />
+                </div>
+                <div className='col'>
+                  <label htmlFor="emailid">Email Id</label>
+                  <input 
+                    type="email" 
+                    id="emailid" 
+                    className='form-control'
+                    ref={el => inputRef.current['emailid'] = el}
+                    autoComplete="off"
+                    onChange={handleInputChange}
+                    value = {inputs.emailid || ''}
+                    required
+                  />
+                </div>          
+              </div>
+              <div className='row'>
+                <div className='col'>
+                  <label htmlFor="state">State</label>
+                  <input 
+                    type="text" 
+                    id="state" 
+                    className='form-control'
+                    ref={el => inputRef.current['state'] = el}
+                    autoComplete="off"
+                    onChange={handleInputChange}
+                    value = {inputs.state || ''}
+                    required
+                  />
+                </div>
+                <div className='col'>
+                  <label htmlFor="city">City</label>
+                  <input 
+                    type="text" 
+                    id="city" 
+                    className='form-control'
+                    ref={el => inputRef.current['city'] = el}
+                    autoComplete="off"
+                    onChange={handleInputChange}
+                    value = {inputs.city || ''}
+                    required
+                  />
+                </div>          
+                <div className='col'>
+                  <label htmlFor="zipcode">Zip Code</label>
+                  <input 
+                    type="text" 
+                    id="zipcode" 
+                    className='form-control'
+                    ref={el => inputRef.current['zipcode'] = el}
+                    autoComplete="off"
+                    onChange={handleInputChange}
+                    value = {inputs.zipcode || ''}
+                    required
+                  />
+                </div>          
+              </div>
+              <div className='row'>
+                <div className='col'>
+                  <label htmlFor='profiledescription'>About</label>
+                  <textarea 
+                    id="profiledescription"
+                    className='form-control'
+                    ref={el => inputRef.current['profiledescription'] = el}
+                    autoComplete="off"
+                    onChange={handleInputChange}
+                    required
+                    value={inputs.profiledescription || ''}
+                  />
+                </div>
+              </div>
+              <br/>
+              <div className='row'>
+                <div className='col'>                  
+                  <div className="clsDivButtons" >
+                    <button className="btn btn-success rounded" type="button"  onClick={() =>  props.setCurrentNav('template')}>Back </button>
+                    <button className="btn btn-success rounded" type="button"  onClick={saveBasicInfo}>Save & Next </button>
+                  </div>
+                </div>
+                {/* <div className='col'>
+                  <button type="button" className="btn btn-success" onClick={saveBasicInfo}>Save</button>
+                </div> */}
+              </div>
+            </form>   
+          </section>
         </div>
-        <div className='row'>
-          <div className='col'>
-            <label htmlFor="profiletitle">Title</label>
-            <input 
-              type="text" 
-              id="profiletitle" 
-              ref={el => inputRef.current['profiletitle'] = el}
-              autoComplete="off"
-              onChange={handleInputChange}
-              value = {inputs.profiletitle || ''}
-              required
-            />
-          </div>
-          <div className='col'>
-            <label htmlFor="emailid">Email Id</label>
-            <input 
-              type="email" 
-              id="emailid" 
-              ref={el => inputRef.current['emailid'] = el}
-              autoComplete="off"
-              onChange={handleInputChange}
-              value = {inputs.emailid || ''}
-              required
-            />
-          </div>          
-        </div>
-        <div className='row'>
-          <div className='col'>
-            <label htmlFor="state">State</label>
-            <input 
-              type="text" 
-              id="state" 
-              ref={el => inputRef.current['state'] = el}
-              autoComplete="off"
-              onChange={handleInputChange}
-              value = {inputs.state || ''}
-              required
-            />
-          </div>
-          <div className='col'>
-            <label htmlFor="city">City</label>
-            <input 
-              type="text" 
-              id="city" 
-              ref={el => inputRef.current['city'] = el}
-              autoComplete="off"
-              onChange={handleInputChange}
-              value = {inputs.city || ''}
-              required
-            />
-          </div>          
-          <div className='col'>
-            <label htmlFor="zipcode">Zip Code</label>
-            <input 
-              type="text" 
-              id="zipcode" 
-              ref={el => inputRef.current['zipcode'] = el}
-              autoComplete="off"
-              onChange={handleInputChange}
-              value = {inputs.zipcode || ''}
-              required
-            />
-          </div>          
-        </div>
-        <div className='row'>
-          <div className='col'>
-            <label htmlFor='profiledescription'>About</label>
-            <textarea 
-              id="profiledescription"
-              ref={el => inputRef.current['profiledescription'] = el}
-              autoComplete="off"
-              onChange={handleInputChange}
-              required
-              value={inputs.profiledescription || ''}
-            />
-          </div>
-        </div>
-        <br/>
-        <div className='row'>
-          <div className='col'></div>
-          <div className='col'>
-            <button type="button" className="btn btn-success" onClick={saveBasicInfo}>Save</button>
-          </div>
-        </div>
-      </form>   
-   </section>
+      </div>
+    </div>
   )
 }
 
